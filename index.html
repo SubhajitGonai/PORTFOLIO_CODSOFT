@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subhajit Gonai - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="image/logo.jpg" alt="Logo Image" class="logo-image">
+            <span class="welcome-text">𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓶𝔂 𝔀𝓮𝓫𝓼𝓲𝓽𝓮</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#skills" class="nav-link" id="skills-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link" id="projects-link">Projects</a></li>
+                <li><a href="#achievements" class="nav-link" id="achievements-link">Achievements</a></li>
+                <li><a href="#contact" class="nav-link" id="contact-link">Contact Me</a></li>
+            </ul>
+        </nav>
+        
+    </header> 
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="intro">
+            <h1>
+                Hi,<br>
+                <span class="name">I'm <span class="highlight">Subhajit Gonai</span></span>
+                <span class="wave">👋</span>
+            </h1>
+            <p>
+                I am a passionate Full Stack Software Developer 🚀 with experience in building web and mobile applications using technologies like JavaScript and more.
+            </p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn-primary">Contact Me</a>
+                <!-- Resume Button -->
+                <button id="resume-button" class="resume-button">View Resume</button>
+
+                <!-- Modal for PDF -->
+                <div id="pdf-modal" class="pdf-modal">
+                    <div class="pdf-modal-content">
+                        <span id="pdf-close" class="pdf-close">&times;</span>
+                        <embed src="cv.pdf" type="application/pdf" class="pdf-embed">
+                    </div>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-google"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="image/hero.jpg" alt="Illustration of a person working at a desk">
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <button class="skill-toggle">
+                    Programming <span class="toggle-icon">+</span>
+                </button>
+                <div class="skills-content">
+                    <div class="skill-item">Java</div>
+                    <div class="skill-item">C</div>
+                    <div class="skill-item">C++</div>
+                    <div class="skill-item">Python</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <button class="skill-toggle">
+                    Web <span class="toggle-icon">+</span>
+                </button>
+                <div class="skills-content">
+                    <div class="skill-item">HTML</div>
+                    <div class="skill-item">CSS</div>
+                    <div class="skill-item">JavaScript</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <button class="skill-toggle">
+                    Concepts <span class="toggle-icon">+</span>
+                </button>
+                <div class="skills-content">
+                    <div class="skill-item">OOPs</div>
+                    <div class="skill-item">DS</div>
+                    <div class="skill-item">MySQL</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <button class="skill-toggle">
+                    Platforms <span class="toggle-icon">+</span>
+                </button>
+                <div class="skills-content">
+                    <div class="skill-item">Visual Studio Code</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <button class="skill-toggle">
+                    Soft Skills <span class="toggle-icon">+</span>
+                </button>
+                <div class="skills-content">
+                    <div class="skill-item">Problem Solving</div>
+                    <div class="skill-item">Smart Working</div>
+                    <div class="skill-item">Communication</div>
+                    <div class="skill-item">Situation Handling</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <button class="skill-toggle">
+                    Languages <span class="toggle-icon">+</span>
+                </button>
+                <div class="skills-content">
+                    <div class="skill-item">English</div>
+                    <div class="skill-item">Bengali</div>
+                    <div class="skill-item">Hindi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="projects-container">
+            <div class="project-row">
+                <!-- Stopwatch Project -->
+                <div class="project-box">
+                    <div class="project-content">
+                        <!-- Front Side -->
+                        <div class="project-front">
+                            <img src="image/clock.jpg" alt="Screenshot of Stopwatch Project">
+                            <h3>Stopwatch with Clock and Alarm</h3>
+                            <span class="emoji eye-emoji">👁️</span>
+                        </div>
+                        <!-- Back Side -->
+                        <div class="project-back">
+                            <h3>Stopwatch with Clock and Alarm</h3>
+                            <div class="project-description">
+                                <p>• Real-time clock with a stopwatch feature.</p>
+                                <p>• Alarm functionality to set reminders.</p>
+                                <p>• User-friendly interface for easy navigation.</p>
+                            </div>
+                            <div class="project-link">
+                                <a href="https://github.com/your-repo/stopwatch" target="_blank">View on GitHub</a>
+                            </div>
+                            <span class="emoji back-emoji">🔙</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tic Tac Toe Project -->
+                <div class="project-box">
+                    <div class="project-content">
+                        <!-- Front Side -->
+                        <div class="project-front">
+                            <img src="image/tictactoe.jpg" alt="Screenshot of Tic Tac Toe Project">
+                            <h3>Tic Tac Toe Game</h3>
+                            <span class="emoji eye-emoji">👁️</span>
+                        </div>
+                        <!-- Back Side -->
+                        <div class="project-back">
+                            <h3>Tic Tac Toe Game</h3>
+                            <div class="project-description">
+                                <p>• Play against AI or other players.</p>
+                                <p>• Multiplayer mode for added fun.</p>
+                                <p>• Strategy-based gameplay for challenging experience.</p>
+                            </div>
+                            <div class="project-link">
+                                <a href="https://github.com/your-repo/tic-tac-toe" target="_blank">View on GitHub</a>
+                            </div>
+                            <span class="emoji back-emoji">🔙</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proficiency Section Heading -->
+            <h3 class="proficiency-heading">Proficiency in HTML, CSS, and JavaScript</h3>
+            <div class="proficiency-container">
+                <div class="image-container">
+                    <img src="image/proficiency.jpeg" alt="Proficiency Image">
+                </div>
+                <div class="bars-box">
+                    <div class="proficiency-item">
+                        <span class="label">HTML</span>
+                        <div class="bar html-bar">
+                            <div class="bar-fill" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="proficiency-item">
+                        <span class="label">CSS</span>
+                        <div class="bar css-bar">
+                            <div class="bar-fill" data-width="75%"></div>
+                        </div>
+                    </div>
+                    <div class="proficiency-item">
+                        <span class="label">JavaScript</span>
+                        <div class="bar js-bar">
+                            <div class="bar-fill" data-width="45%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section">
+        <div class="achievements-heading">
+            <h2>Achievements</h2>
+        </div>
+        <div class="achievements-container">
+            <!-- First Row -->
+            <div class="achievement-row">
+                <!-- Achievement 1 -->
+                <div class="achievement-box">
+                    <div class="achievement-content">
+                        <div class="achievement-front">
+                            <img src="certificate/certificate1.jpg" alt="Certificate 1" class="achievement-img">
+                            <span class="emoji eye-emoji">👁️</span>
+                        </div>
+                        <div class="achievement-back">
+                            <h3>Next.js & React WebApp (March 1, 2023)</h3>
+                            <ul>
+                                <li>Built a server-rendered React app with Next.js.</li>
+                                <li>Developed an SEO-friendly web app from scratch.</li>
+                                <li>Implemented dynamic routing, API integration, and SSR.</li>
+                                <li>Learned deployment techniques for production-ready apps.</li>
+                            </ul>
+                            <span class="emoji back-emoji">🔙</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievement 2 -->
+                <div class="achievement-box">
+                    <div class="achievement-content">
+                        <div class="achievement-front">
+                            <img src="certificate/certificate2.jpg" alt="Certificate 2" class="achievement-img">
+                            <span class="emoji eye-emoji">👁️</span>
+                        </div>
+                        <div class="achievement-back">
+                            <h3>PostgreSQL & MSSQL for Beginners (February 23, 2023)</h3>
+                            <ul>
+                                <li>Gained skills in SQL for PostgreSQL and MSSQL.</li>
+                                <li>Learned database management, data modeling, and optimization.</li>
+                                <li>Worked on real-world queries and database functions.</li>
+                                <li>Built and managed databases ensuring data integrity.</li>
+                            </ul>
+                            <span class="emoji back-emoji">🔙</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievement 3 -->
+                <div class="achievement-box">
+                    <div class="achievement-content">
+                        <div class="achievement-front">
+                            <img src="certificate/certificate3.jpg" alt="Certificate 3" class="achievement-img">
+                            <span class="emoji eye-emoji">👁️</span>
+                        </div>
+                        <div class="achievement-back">
+                            <h3>Machine Learning with R Studio (March 5, 2023)</h3>
+                            <ul>
+                                <li>Implemented machine learning algorithms using R Studio.</li>
+                                <li>Gained experience in data preprocessing, model evaluation, and optimization.</li>
+                                <li>Applied supervised and unsupervised learning techniques.</li>
+                                <li>Built and deployed predictive models for real-world data.</li>
+                            </ul>
+                            <span class="emoji back-emoji">🔙</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Row -->
+            <div class="achievement-row centered">
+                <!-- Centered Achievement -->
+                <div class="achievement-box">
+                    <div class="achievement-content">
+                        <div class="achievement-front">
+                            <img src="certificate/certificate4.jpg" alt="Certificate 4" class="achievement-img">
+                            <span class="emoji eye-emoji">👁️</span>
+                        </div>
+                        <div class="achievement-back">
+                            <h3>Web Development Intern, ProdigyInfoTech</h3>
+                            <ul>
+                                <li>Enhanced web applications using HTML, CSS, and JavaScript.</li>
+                                <li>Designed and implemented responsive UI with the development team.</li>
+                                <li>Debugged and optimized code to improve performance.</li>
+                                <li>Contributed to documentation and participated in code reviews.</li>
+                            </ul>
+                            <span class="emoji back-emoji">🔙</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="contact-content">
+            <div class="contact-info">
+                <h2>Contact Me</h2>
+                <p><strong>Subhajit Gonai</strong></p>
+                <p>Web Developer 👨🏻‍💻 | Web Designer 🎨 | </p>
+                <p>Kolkata, West Bengal 🏠 </p>
+                <p>Email: <a href="mailto:subhajit@gmail.com"><span class="fade-text">subhajit@gmail.com </span>📧</a> | Phone: <span class="fade-text">+91 7001 📞</span></p>
+                <p><span class="fade-quote">"</span>Reach out to me! Discuss a project or just want to say hi—my inbox is open for all.<span class="fade-quote">"</span></p>
+                <p>Open for opportunities: <span class="yes-fade">Yes</span>⤷</p>
+                <div class="social-icons">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-google"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="contact-photo">
+                <img src="image/profile.jpg" alt="Your Photo">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 🔍<span style="color: yellow;">Subhajit Gonai</span> <span class="flag-icon flag-icon-in"></span> 2024. <span style="color: yellow;">All Rights Reserved</span>🚫.</p>
+
+
+
+    </footer>
+
+    <script>
+        // Preload audio
+        var clickSound = new Audio('click.wav'); // Replace with the path to your sound file
+        clickSound.preload = 'auto';
+    
+        // Function to play sound
+        function playSound() {
+            clickSound.currentTime = 0; // Reset time to the beginning
+            clickSound.play();
+        }
+    
+        // Add event listeners to buttons and additional elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Selectors for various elements
+            var elements = document.querySelectorAll(
+                '.btn-primary, .resume-button, .eye-emoji, .back-emoji, .nav-link, .social-links a, .logo, .social-icons a, .skill-toggle, .toggle-icon'
+            );
+    
+            // Add event listener for click on each element
+            elements.forEach(function(element) {
+                element.addEventListener('click', playSound);
+            });
+        });
+    </script>
+    <script src="script.js"></script> <!-- Link your JS file -->
+</body>
+</html>

@@ -1,0 +1,1585 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: #ffffff; /* Dark background for contrast */
+    color: #e0e0e0; /* Light text color for readability */
+    animation: backgroundAnimation 10s infinite;
+    border: none;
+}
+
+/* Background Animation */
+@keyframes backgroundAnimation {
+    0%, 100% { background-color: #121212; }
+    50% { background-color: #1a1a1a; }
+}
+
+/* General styles for sections */
+.section {
+    position: relative;
+    padding: 20px;
+    margin: 10px 0;
+}
+
+/* Style for section headings */
+.section h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px; /* Space for the underline */
+}
+
+/* Underline styling */
+.section h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #000000; /* Color of the underline */
+    transition: width 0.3s ease;
+}
+
+/* Active section styling */
+.section.active h2::after {
+    width: 100%;
+}
+
+/* Ensure there are no borders */
+.section {
+    border: none;
+}
+
+/* Reset margins and padding if needed */
+.section {
+    margin: 0;
+    padding: 0;
+    border-bottom: none; /* Remove any bottom border if applied */
+}
+
+
+/* Define CSS Variables for Gradient Colors */
+:root {
+    --gradient-start: #1e1e1e;
+    --gradient-end: #121212;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, var(--gradient-start) 50%, var(--gradient-end) 50%);
+    padding: 15px 20px; /* Initial padding */
+    box-shadow: 0 4px 8px rgba(253, 94, 2, 0.87); /* Adjusted shadow */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: padding 0.8s ease-in-out, background 0.8s ease-in-out, box-shadow 0.8s ease-in-out, border-bottom 0.8s ease-in-out;
+    border-bottom: 1px solid #ffda07d3; /* Thinner border */
+    overflow: hidden;
+}
+
+/* Header Shrink Effect on Scroll */
+header.shrink {
+    padding: 10px 20px; /* Final padding when scrolled */
+    box-shadow: 0 2px 4px rgba(253, 94, 2, 0.87); /* Reduced shadow on scroll */
+}
+
+/* Header Background Animation Based on Cursor Position */
+header:hover {
+    background: linear-gradient(
+        135deg,
+        var(--gradient-end) 50%,
+        var(--gradient-start) 50%
+    );
+}
+
+/* Dynamic Gradient based on Cursor Position */
+header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Navigation Container */
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Space between items */
+    margin: 0;
+    padding: 0;
+    border-radius: 8px; /* Rounded corners for the entire list */
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background for visual effect */
+    padding: 5px 10px; /* Add padding inside the list */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4), 0 0 10px rgba(255, 215, 3, 0.4); /* Soft shadow for depth and light yellowish shadow */
+    transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth background and shadow transitions */
+    border: 2px solid #ffd903; /* Yellow thin border */
+}
+
+/* Hover State for Header Navigation */
+header nav ul:hover {
+    background: rgba(255, 255, 255, 0.2); /* Lighter background on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 215, 3, 0.6); /* Enhanced shadow and light yellowish shadow on hover */
+}
+
+/* Navigation List Items */
+header nav ul li {
+    position: relative;
+    border-radius: 8px; /* Rounded corners for each list item */
+    overflow: hidden; /* Ensure rounded corners don't overflow */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: bounceIn 1s ease; /* Add bounce-in animation */
+}
+
+/* Hover Effect for Navigation List Items */
+header nav ul li:hover {
+    transform: scale(1.1) rotate(2deg); /* Slightly larger scale and rotation on hover */
+    background-color: rgba(0, 0, 0, 0.2); /* Subtle background change on hover */
+    animation: pulse 1.2s infinite; /* Add pulsing animation */
+}
+
+/* Navigation Links */
+header nav ul li a {
+    text-decoration: none;
+    font-size: 18px; /* Slightly smaller font size */
+    color: #ffffff; /* Light color for text */
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+    position: relative;
+    display: inline-block;
+    padding: 10px; /* Add padding for better spacing */
+}
+
+/* Underline Animation for Links */
+header nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjusted bottom position */
+    width: 100%;
+    height: 2px;
+    background-color: #ffd903; /* Highlight color */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    z-index: 1; /* Ensure underline is above the background */
+}
+
+/* Hover Effect for Links */
+header nav ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Hover State for Links */
+header nav ul li a:hover {
+    color: #f7c55a; /* Color change on hover */
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Header Text Animation */
+@keyframes textAnimation {
+    0%, 100% { color: #e0e0e0; }
+    50% { color: #edfd04; }
+}
+
+/* Bounce In Animation */
+@keyframes bounceIn {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+header .logo .welcome-text {
+    animation: textAnimation 5s infinite;
+    font-size: 20px; /* Slightly smaller font size */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transform: rotateY(0deg); /* Ensure text starts facing forward */
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Logo Styles */
+.logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    perspective: 1000px;
+    width: 120px;
+    height: 120px;
+    transition: filter 0.6s ease, box-shadow 0.3s ease;
+}
+
+/* Logo Image Hover Effect */
+.logo:hover .logo-image {
+    filter: brightness(1.2);
+    box-shadow: 
+        0 0 15px rgba(0, 0, 0, 0.7), /* Outer shadow for overall glow */
+        inset 0 0 10px rgb(255, 30, 0), /* Bright orange inner shadow */
+        0 0 25px rgba(255, 230, 1, 0.911), /* Blue shadow for a more pronounced effect */
+        inset 0 0 5px #ff6601; /* Darker inner border */
+}
+
+/* Logo Image Styles */
+.logo-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 8px 16px rgba(133, 100, 252, 0.4);
+    outline: 2px solid #00eeff; /* Black color for the box gap */
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    border: 3px solid #fff; /* Add this line for a thin white border */
+    z-index: 1;
+}
+
+
+/* Enhanced Welcome Text Design */
+.welcome-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 130px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.9);
+    color: #e0e0e0;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    z-index: 2;
+    border-radius: 50%;
+    padding: 15px;
+    border: 2px solid #fff; /* Add this line for a thin white border */
+    box-shadow: 8px 8px 16px rgba(133, 100, 252, 0.4);
+    outline: 2px solid #00eeff; /* Black color for the box gap */
+}
+
+
+/* Flip Animation */
+.logo.flip .logo-image {
+    transform: rotateY(0deg); /* Changed to 180deg for a half flip */
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.logo.flip .welcome-text {
+    visibility: visible;
+    opacity: 1;
+    transform: rotateY(180deg); /* Ensure text appears normally */
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Flip Container */
+.logo {
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.logo.flip {
+    transform: rotateY(180deg); /* Rotate the logo to show the back side */
+}
+
+/* Pulse Animation for Header Elements */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+header nav ul li:hover, 
+.logo:hover .welcome-text.visible {
+    animation: pulse 1.2s infinite; /* Adds a gentle pulsing effect */
+}
+
+/* Hero Section */
+#hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 50px;
+    background: linear-gradient(135deg,  #e0e4e8 50%, #ffffff 50%);
+    min-height: 100vh;
+    position: relative;
+    flex-wrap: wrap;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Hero Section Background Animation on Hover */
+#hero:hover {
+    background: linear-gradient(135deg, #f0f2f5 50%, #ffffff 50%);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Intro Heading */
+.intro h1 {
+    font-size: 2.5rem; /* Main heading size */
+    margin: 0;
+    line-height: 1.3; /* Adjusted line-height for better spacing */
+    text-align: left;
+    color: #111;
+}
+
+.intro h1 .highlight {
+    font-size: 1.5rem; /* Adjusted size for "Subhajit Gonai" */
+    color: #007bff; /* Blue color */
+    font-weight: bold;
+    border: 1px solid black; /* Thin black border */
+    padding: 0.1rem; /* Padding for border visibility */
+    border-radius: 0.1rem; /* Slightly rounded corners for border */
+    animation: fadeIn 2s ease-in-out; /* Animation for appearance */
+}
+
+.intro h1 .name {
+    font-size: 1.2rem; /* Adjusted size for "I'm" */
+    color: #000; /* Default color */
+}
+
+/* Animation for Heading */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Intro Paragraph */
+.intro p {
+    font-size: 1.25rem; /* Adjusted for readability */
+    color: #272727;
+    margin: 20px 0 30px; /* Added margin-top to space out from heading */
+    max-width: 600px;
+    opacity: 0;
+    animation: fadeInUp 1.5s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+/* CTA Buttons */
+.cta-buttons {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+    border: 2px solid #000000; /* Thin black border */
+    outline: 2px solid rgb(0, 217, 255); /* Black color for the box gap */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.4);
+    border: 2px solid #00fff2; /* Thin black border */
+    outline: 2px solid rgb(0, 0, 0); /* Black color for the box gap */
+}
+
+/* Resume Button Style */
+.resume-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #28a745; /* Different color for 'View Resume' */
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+    border: 2px solid #000000; /* Thin black border */
+    outline: 2px solid rgb(166, 253, 195); /* Black color for the box gap */
+}
+
+.resume-button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(40, 167, 69, 0.4);
+    border: 2px solid rgb(166, 253, 195); /* Thin black border */
+    outline: 2px solid #000000; /* Black color for the box gap */
+}
+
+.resume-button:active {
+    background-color: #1e7e34;
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+/* Modal Styles */
+.pdf-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Darker background for better contrast */
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Padding around the modal content */
+}
+
+.pdf-modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 1000px; /* Adjusted to give more room */
+    height: 80vh; /* Set a height for the modal to avoid it being too small */
+    position: relative;
+    border-radius: 8px; /* Rounded corners for a smoother look */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Ensures content doesn't overflow */
+}
+
+.pdf-embed {
+    width: 100%;
+    height: 100%; /* Adjust height to fit the container */
+    border: none;
+}
+
+/* Close Button Styles */
+.pdf-close {
+    color: #888;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+.pdf-close:hover,
+.pdf-close:focus {
+    color: #333;
+    text-decoration: none;
+    transform: rotate(90deg); /* Rotate the close button on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pdf-modal-content {
+        width: 90%;
+        padding: 20px;
+        height: 80vh; /* Ensure the height is responsive */
+    }
+
+    .resume-button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    /* Adjustments for Hero Section on smaller screens */
+    #hero {
+        padding: 60px 30px;
+    }
+
+    .intro h1 {
+        font-size: 1.8rem; /* Smaller heading size for mobile */
+    }
+
+    .intro h1 .highlight {
+        font-size: 1.2rem; /* Adjusted size for "Subhajit Gonai" */
+    }
+
+    .intro p {
+        font-size: 1rem; /* Smaller font size for mobile */
+    }
+}
+
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 25px;
+    margin-left: 65px; /* Pushes the container to the right if inside a flex container */
+    padding-left: 15px; /* Add padding to move the links further to the right */
+}
+
+.social-links a {
+    font-size: 28px;
+    color: #333;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #007bff;
+    transform: scale(1.2);
+    
+}
+
+/* Hero Image */
+.hero-image img {
+    width: 400px; /* Reduced size */
+    height: auto;
+    margin-top: 30px; /* Move the image downward */
+    opacity: 0;
+    animation: heroImageZoomIn 1.2s ease-out forwards;
+}
+
+/* Hero Image Hover Effect */
+.hero-image img:hover {
+    transform: scale(1.05) rotate(2deg);
+    transition: transform 0.5s ease;
+}
+
+/* Keyframes */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroImageZoomIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Hand Emoji Animation */
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.wave {
+    display: inline-block;
+    animation: wave 1s infinite;
+}
+
+/* Skills Section */
+#skills {
+    padding: 40px 50px;
+    background-color: #f7f8fc;
+    text-align: center;
+    overflow: hidden;
+}
+
+#skills h2 {
+    font-size: 40px;
+    color: #333;
+    margin-bottom: 50px; /* Increased margin-bottom for more gap */
+    display: inline-block;
+    margin: 0 auto;
+    margin-top: 8px; /* Adjust this value as needed */
+}
+
+#skills h2:hover {
+    color: #e52e71; /* Change color on hover */
+}
+
+/* Skill Container */
+.skills-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    padding: 0;
+    margin-top: 20px; /* Adjust this value to move the container down */
+}
+
+
+/* Skill Category */
+.skill-category {
+    flex: 1 1 200px;
+    margin: 0 10px;
+    box-sizing: border-box;
+    height: 200px;
+    max-width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-category.active {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.skill-category.open {
+    transform: scale(1.05);
+}
+
+.skill-toggle {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 20px; /* Increased padding for larger button */
+    font-size: 18px; /* Larger font size */
+    width: 100%;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.6s ease, transform 0.6s ease; /* Slowed down animation */
+    border-radius: 8px; /* Slightly more rounded corners */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Added box shadow for depth */
+}
+
+.skill-toggle:hover {
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    transform: scale(1.05); /* Slightly increased scale effect */
+    box-shadow: 0px 6px 15px rgba(229, 46, 113, 0.4); /* Enhanced shadow on hover */
+}
+
+.toggle-icon {
+    font-size: 24px; /* Increased icon size */
+    display: inline-block; /* Ensures the icon behaves correctly during transformation */
+    transition: transform 1s ease, color 1s ease; /* Slower transition */
+}
+
+.skill-category.open .toggle-icon {
+    transform: rotate(45deg);
+    color: #000000; /* Color change when active */
+    font-size: 24px; /* Ensure font size stays the same */
+}
+
+/* Skills Section */
+#skills {
+    padding: 40px 50px;
+    background-color: #f8f8f8;
+    text-align: center;
+    overflow: visible;
+    position: relative;
+    z-index: 10;
+    min-height: 400px;
+    margin-top: -50px; /* Pull up the section */
+}
+
+/* Section Title */
+#skills h2 {
+    font-size: 40px;
+    color: #333;
+    margin-bottom: 50px; /* Increased margin-bottom for more gap */
+    display: inline-block;
+    margin: 0 auto;
+    margin-top: 8px; /* Adjust this value as needed */
+}
+
+/* Skills Container */
+.skills-container {
+    display: flex;
+    justify-content: center; /* Center align items */
+    gap: 10px; /* Reduced space between skill categories */
+    margin-top: 20px; /* Adjust this value to move the container down */
+    flex-wrap: nowrap; /* Ensure all items stay on a single line */
+    overflow: visible; /* Allow overflow so that the bottom border is visible */
+}
+
+/* Skill Category */
+.skill-category {
+    flex: 0 0 150px; /* Ensure items don't shrink or wrap */
+    margin: 0 5px; /* Reduced margin */
+    box-sizing: border-box;
+    height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    border-radius: 10px;
+    overflow: visible; /* Ensure content like borders are not cut off */
+    z-index: 1; /* Ensure it's above the background */
+}
+
+
+/* Skill Toggle Button */
+.skill-toggle {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px; /* Reduced padding for smaller button */
+    font-size: 16px; /* Slightly smaller font size */
+    width: 100%;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.6s ease, transform 0.6s ease;
+    border-radius: 8px; /* Slightly more rounded corners */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Added box shadow for depth */
+}
+
+/* Skill Toggle Hover Effect */
+.skill-toggle:hover {
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    transform: scale(1.05); /* Slightly increased scale effect */
+    box-shadow: 0px 6px 15px rgba(229, 46, 113, 0.4); /* Enhanced shadow on hover */
+}
+
+/* Toggle Icon */
+.toggle-icon {
+    font-size: 20px; /* Slightly smaller icon */
+    transition: transform 1s ease, color 1s ease;
+}
+
+.skill-category.open .toggle-icon {
+    transform: rotate(45deg);
+    color: #ffffff;
+}
+
+/* Skills Content */
+.skills-content {
+    display: none;
+    overflow: visible;
+    padding: 10px 0;
+    background-color: #fafafa;
+    border-top: none;
+    transition: max-height 0.5s ease, opacity 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
+    opacity: 0;
+    max-height: 0;
+    border-radius: 0 0 10px 10px;
+    border: 2px solid #080808; /* Ensure border is visible */
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2; /* Increase z-index to make sure it shows above other content */
+}
+
+/* Active Box with Enhanced Shadow */
+.skill-category.open .skills-content {
+    display: block;
+    opacity: 1;
+    max-height: 500px;
+    background-color: #ffffff;
+    animation: slideIn 0.5s ease-out;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0px 0px 15px 3px rgba(229, 46, 113, 0.4); /* Enhanced shadow */
+    overflow: visible;
+    z-index: 3; /* Ensure it's above the shadow */
+}
+
+/* Individual Skills Styling */
+.skill-item {
+    font-weight: bold;
+    color: #000000;
+    border-bottom: 1px solid #080808;
+    padding: 5px 0;
+    margin: 0 10px; /* Reduced margin to save space */
+    font-size: 14px; /* Slightly smaller font size */
+}
+
+/* Hover Effect for Skill Items */
+.skill-item:hover {
+    color: #e52e71;
+    border-bottom: 1px solid #e52e71;
+}
+
+/* Add underline effect */
+.skills-content::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: #e52e71;
+    transition: width 0.4s ease, left 0.4s ease;
+}
+
+.skill-category.open .skills-content::before {
+    width: 100%;
+    left: 0;
+}
+
+/* Keyframes for slide-in animation */
+@keyframes slideIn {
+    0% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Media Query for Adjustments */
+@media (max-width: 768px) {
+    .skills-container {
+        flex-wrap: nowrap; /* No wrapping, keep all in one line */
+        overflow-x: hidden; /* Ensure no horizontal scroll on small screens */
+    }
+
+    .skill-category {
+        flex: 1 1 100%; /* Ensure categories take full width on small screens */
+    }
+}
+
+/* Projects Section */
+#projects {
+    padding: 40px 50px;
+    background-color: #ffffff; /* Background color for the section */
+    text-align: center;
+    margin-top: 0px; /* Move the section downward */
+    min-height: calc(100vh - 50px); /* Ensure the section fills the viewport */
+}
+
+#projects h2 {
+    font-size: 40px;
+    color: #333;
+    margin-bottom: 50px;
+    transition: color 0.3s ease; /* Add transition for color change */
+}
+
+#projects h2:hover {
+    color: #e52e71; /* Change color on hover */
+}
+
+/* Project Row */
+.project-row {
+    display: flex;
+    justify-content: center; /* Center the projects horizontally */
+    gap: 30px; /* Space between projects */
+    flex-wrap: nowrap; /* Ensure projects stay in a single row */
+}
+
+/* Project Box Dimensions */
+.project-box {
+    width: 400px; /* Width for rectangular shape */
+    height: 300px; /* Height for rectangular shape */
+    perspective: 1000px; /* Perspective to create the 3D flip effect */
+    position: relative;
+    overflow: hidden; /* Prevents extra background from appearing */
+    background-color: transparent; /* Ensures no background on the main box */
+    margin-bottom: 20px; /* Add spacing for sub-box */
+    border: 3px solid rgb(255, 217, 0); /* Black border color */
+    outline: 2px solid rgba(255, 180, 180, 0.582); /* Black color for the box gap */
+    border-radius: 15px; /* Rounded corners */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for border and shadow */
+}
+
+/* Hover Effect for Project Box */
+.project-box:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    border-color: #ae00ff; /* Change border color on hover */
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3); /* Shadow effect on hover */
+    outline-color: #ffffff; /* Change outline color on hover */
+}
+
+/* Inner Content that Flips */
+.project-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+    background-color: transparent; /* No background for flipping content */
+}
+
+/* Flipping effect */
+.project-box.flipped .project-content {
+    transform: rotateY(180deg);
+}
+
+/* Front Face */
+.project-front, .project-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden; /* Hide the back face when flipped */
+    border-radius: 15px; /* Slightly rounded corners */
+    box-shadow: 0 6px 15px rgba(1, 38, 248, 0.623); /* Box shadow for more prominent effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
+}
+
+/* Front Face */
+.project-front {
+    background-color: #1e1e1e; /* Dark black color */
+    padding: 15px; /* Add padding to ensure space around the image */
+}
+
+/* Image Styling */
+.project-front img {
+    width: calc(100% - 30px); /* Adjust width to account for padding */
+    height: calc(100% - 30px); /* Adjust height to account for padding */
+    border-radius: 10px;
+    object-fit: cover;
+    border: 2px solid rgb(0, 247, 255); /* Add border around the image */
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3); /* Blue shadow around the image */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+/* Hover Effect for Image Border */
+.project-front img:hover {
+    border-color: #e52e71; /* Change border color on hover */
+    box-shadow: 0 4px 10px rgb(255, 0, 0)
+}
+
+/* Back Face */
+.project-back {
+    transform: rotateY(180deg); /* Rotate back face */
+    background-color: #e1eef1d2;
+    text-align: center;
+}
+
+/* Heading on the Back */
+.project-back h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* Underline Effect */
+.project-back h3::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 2px;
+    background-color: #333;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.project-back h3:hover::after {
+    width: 100%;
+}
+
+/* Description Points */
+.project-description {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    line-height: 1.6;
+    text-align: left;
+    margin: 20px 0;
+    animation: fadeIn 1s ease-in-out; /* Animation effect */
+}
+
+/* GitHub Link */
+.project-link a {
+    font-size: 16px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.project-link a:hover {
+    text-decoration: underline;
+    color: #0056b3; /* Darker color on hover */
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Achievements Section */
+#achievements {
+    padding: 40px 50px;
+    background-color: #f7f8fc;
+    text-align: center;
+}
+
+#achievements h2 {
+    font-size: 40px;
+    color: #333;
+    margin-bottom: 50px;
+    transition: color 0.3s ease;
+}
+
+#achievements h2:hover {
+    color: #e52e71;
+}
+
+/* Achievements Container */
+.achievements-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Adjust spacing as needed */
+}
+
+/* Achievement Row */
+.achievement-row {
+    display: flex;
+    justify-content: center; /* Center the achievements horizontally */
+    gap: 30px; /* Space between achievements */
+    flex-wrap: nowrap; /* Ensure achievements stay in a single row */
+}
+
+/* Centered Achievement in the Second Row */
+.achievement-row.centered {
+    justify-content: center; /* Center the single achievement */
+}
+
+/* Achievement Box */
+.achievement-box {
+    width: 400px; /* Adjust width as needed */
+    height: 300px;
+    perspective: 1000px; /* Perspective for 3D effect */
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 3px solid rgb(255, 217, 0); /* yellow border color */
+    border-radius: 15px; /* Rounded corners */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for border and shadow */
+    outline: 2px solid rgba(255, 180, 180, 0.582); /* Black color for the box gap */
+    outline-offset: -4px; /* Adjust to align with the border if needed */
+}
+
+/* Hover Effect for Achievement Box */
+.achievement-box:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    border-color: #ae00ff; /* Change border color on hover */
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3); /* Shadow effect on hover */
+    outline-color: #ffffff; /* Change outline color on hover */
+}
+
+/* Content that Flips */
+.achievement-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+    background-color: transparent; /* No background for flipping content */
+}
+
+/* Flipping Effect */
+.achievement-box.flipped .achievement-content {
+    transform: rotateY(180deg);
+}
+
+/* Front and Back Faces */
+.achievement-front, .achievement-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(1, 38, 248, 0.623);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
+    
+}
+
+/* Front Face */
+.achievement-front {
+    background-color: #030303;
+    padding: 15px; /* Add padding to ensure space around the image */
+}
+
+/* Image Styling */
+.achievement-front img {
+    width: calc(100% - 30px); /* Adjust width to account for padding */
+    height: calc(100% - 30px); /* Adjust height to account for padding */
+    border-radius: 10px;
+    object-fit: cover;
+    border: 2px solid rgb(0, 247, 255); /* Add border around the image */
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3); /* Blue shadow around the image */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+/* Hover Effect for Image */
+.achievement-front img:hover {
+    border-color: #e52e71; /* Change border color on hover */
+    box-shadow: 0 4px 10px rgb(255, 0, 0); /* Darker shadow effect on hover */
+}
+
+/* Back Face */
+.achievement-back {
+    transform: rotateY(180deg); /* Rotate back face */
+    background-color: #e2f1f5d2;
+    text-align: center;
+}
+
+/* Heading on the Back */
+.achievement-back h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #242424;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* Underline Effect */
+.achievement-back h3::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 2px;
+    background-color: #333;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.achievement-back h3:hover::after {
+    width: 100%;
+}
+
+/* Description Points */
+.achievement-back ul {
+    list-style-type: disc;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+
+/* Emoji Styles */
+.emoji {
+    font-size: 27px; /* Adjust size as needed */
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 2px; /* Square border */
+    border: 1px solid #1b1b1b; /* Border color and thickness */
+    padding: 3px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for better visibility */
+    z-index: 1000;
+}
+
+/* Show Eye Emoji on Front Page Hover for Achievements */
+.achievement-box:not(.flipped):hover .eye-emoji {
+    opacity: 1;
+}
+
+/* Show Eye Emoji on Front Page Hover for Projects */
+.project-box:not(.flipped):hover .eye-emoji {
+    opacity: 1;
+}
+
+/* Show Back Emoji only when hovering over the flipped back page for Achievements */
+.achievement-box.flipped:hover .back-emoji {
+    opacity: 1;
+}
+
+/* Show Back Emoji only when hovering over the flipped back page for Projects */
+.project-box.flipped:hover .back-emoji {
+    opacity: 1;
+}
+
+/* Hide Back Emoji when not hovered, regardless of flip state for Achievements */
+.achievement-box:not(.flipped) .back-emoji {
+    opacity: 0;
+}
+
+/* Hide Back Emoji when not hovered, regardless of flip state for Projects */
+.project-box:not(.flipped) .back-emoji {
+    opacity: 0;
+}
+
+/* Contact Section */
+#contact {
+    padding: 40px 50px;
+    background-color: #ffffff; /* Background color for the section */
+    text-align: center;
+    margin-top: 0px; /* Move the section downward */
+    min-height: calc(100vh - 50px); /* Ensure the section fills the viewport */
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards; /* Fade-in animation for the section */
+}
+
+/* Contact Me heading styled similarly to Projects */
+#contact h2 {
+    font-size: 40px;
+    color: #333;
+    margin-bottom: 50px;
+    transition: color 0.3s ease; /* Add transition for color change */
+    animation: slideInUp 0.5s ease-out forwards; /* Slide-in animation for the heading */
+}
+
+#contact h2:hover {
+    color: #e52e71; /* Change color on hover */
+}
+
+/* Style for Subhajit Gonai - bold and increased size */
+#contact p strong {
+    font-size: 26px;
+    font-weight: bold;
+    color: #222;
+}
+
+/* Faded style for Kolkata, West Bengal */
+#contact p:nth-child(4) {
+    font-size: 18px;
+    color: #999;
+}
+
+/* Bold dark black color for Email & Phone, with faded specific elements */
+#contact p a,
+#contact p:nth-child(5) {
+    font-weight: bold;
+    color: #333;
+}
+
+#contact p a .fade-text,
+#contact p:nth-child(5) .fade-text {
+    color: #bbb; /* Faded color */
+    font-weight: 400; /* Lighter weight for faded text */
+}
+
+/* Reduce size and decrease boldness for "Reach out to me!" */
+#contact p:nth-child(6) {
+    font-size: 18px;
+    font-weight: 600;
+    color: #444;
+    margin-top: 20px;
+}
+
+/* Faded quotation marks */
+#contact p:nth-child(6) .fade-quote {
+    color: #bbb; /* Faded color for quotation marks */
+    font-weight: 400; /* Lighter weight for quotation marks */
+}
+
+/* Reduced size for "Open for opportunities: Yes⤷" with faded "Yes" */
+#contact p:nth-child(7) {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111;
+}
+
+#contact p:nth-child(7) .yes-fade {
+    color: #bbb; /* Faded color for "Yes" */
+    font-weight: 400;
+}
+
+/* Social Icons */
+.social-icons {
+    margin-top: 10px; /* Reduced margin to decrease gap */
+    text-align: center; /* Center-align icons */
+    
+}
+
+.social-icons a {
+    margin-right: 15px; /* Increased margin for spacing between icons */
+    display: inline-block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease; /* Smooth transition for hover effect */
+    box-shadow: 0 8px 16px rgba(133, 100, 252, 0.4);
+    border: 2px solid rgb(0, 0, 0); /* Thin black border */
+    border-radius: 50%; /* Make the border rounded */
+    outline: 2px solid #00eeff; /* Black color for the box gap */
+}
+
+
+.social-icons a:hover {
+    transform: scale(1.1); /* Slightly enlarge icons on hover */
+}
+
+.social-icons i {
+    font-size: 24px; /* Icon size */
+    border: 1px solid #000; /* Thin black border */
+    border-radius: 50%; /* Rounded border */
+    padding: 10px; /* Increased padding for a more defined icon */
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5); /* Blue light shadow */
+    transition: color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition for color, shadow, and transform */
+}
+
+.social-icons i:hover {
+    color: #e52e71; /* Change color on hover */
+    box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.7); /* Slightly enhanced shadow on hover */
+}
+
+/* Contact Photo */
+.contact-photo {
+    text-align: center; /* Center-align photo and icons */
+    margin-top: 30px; /* Adjusted margin to reduce gap */
+}
+
+.contact-photo img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 4px solid #0011ff; /* Thin black border */
+    box-shadow: 0px 10px 20px rgb(17, 0, 255); /* Blue light shadow */
+    outline: 2px solid rgb(0, 217, 255); /* Black color for the box gap */
+    transition: box-shadow 0.3s ease, border 0.3s ease, outline 0.3s ease; /* Smooth transition for box-shadow, border, and outline */
+}
+
+.contact-photo img:hover {
+    box-shadow: 0px 15px 25px rgba(17, 0, 255, 0.7); /* Enhanced shadow on hover */
+    border: 4px solid #e52e71; /* Change border color on hover */
+    outline: 2px solid #00eeff; /* Change outline color on hover */
+}
+
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 50px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px); /* Start with footer slightly moved down */
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    footer {
+        font-size: 14px; /* Adjust font size for smaller screens */
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+}
+
+
+/* Ensure there are no borders */
+.section {
+    border: none;
+}
+
+/* Reset margins and padding if needed */
+.section {
+    margin: 0;
+    padding: 0;
+    border-bottom: none; /* Remove any bottom border if applied */
+}
+
+/* Center container */
+.proficiency-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; /* Space from heading */
+}
+
+/* Image container styling */
+.image-container {
+    margin-bottom: 20px; /* Space between image and bars */
+}
+
+.image-container img {
+    width: 400px; /* Adjust size for better visibility */
+    height: auto;
+    border-radius: 0; /* Remove rounded edges */
+    
+}
+
+/* Bars Box Styling */
+.bars-box {
+    width: 100%;
+    max-width: 500px; /* Adjust width as needed */
+    padding: 10px;
+    border: 2px solid #000000; /* Border around the box */
+    border-radius: 10px; /* Rounded corners for the box */
+    background-color: #f9f9f9; /* Light background color */
+    box-shadow: 0 6px 12px rgba(0, 67, 250, 0.808); /* Optional shadow */
+    transition: border-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover Effect for Skill Items */
+.bars-box:hover {
+    color: #e52e71; /* Text color on hover */
+    border-color: #e52e71; /* Border color on hover */
+}
+
+/* Proficiency Heading */
+h3.proficiency-heading {
+    font-size: 18px; /* Adjust font size as needed */
+    color: #333; /* Darker color */
+    margin-bottom: 15px; /* Space below the heading */
+    font-weight: bold; /* Make the text bold */
+    text-align: center; /* Center-align the heading */
+    padding: 4px 8px; /* Adjust padding to reduce the border box length */
+    background-color: #f8f9fa; /* Light background color for contrast */
+    border-radius: 2px; /* Slightly rounded corners */
+    box-shadow: 0 8px 16px rgba(133, 100, 252, 0.4);
+    border: 2px solid rgb(0, 0, 0); /* Thin black border */
+    outline: 2px solid #00eeff; /* Black color for the box gap */
+    display: inline-block; /* Ensure the heading box is only as wide as its content */
+}
+
+/* Hover Effect for Skill Items */
+h3.proficiency-heading:hover {
+    color: #e52e71; /* Text color on hover */
+    box-shadow: 0 8px 16px #00eeff;
+    border: 2px solid rgb(0, 0, 0); /* Thin black border */
+    outline: 2px solid rgba(133, 100, 252, 0.4); /* Black color for the box gap */
+}
+
+/* Proficiency Bars */
+.proficiency-item {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #000000; /* Border around the box */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.proficiency-item:hover {
+    border-color: #e52e71;
+}
+
+.proficiency-item .label {
+    font-weight: bold;
+    color: #000000; /* Black text */
+    margin-right: 15px;
+    width: 100px;
+    text-align: right;
+}
+
+/* Bars Styling */
+.bar {
+    flex: 1;
+    background-color: #a8a7f3a8;
+    border-radius: 25px;
+    height: 20px;
+    overflow: hidden;
+    position: relative;
+    margin: 5px 0;
+    border: 1px solid #000000; /* Optional border around the box */
+}
+
+/* Bar Fill */
+.bar-fill {
+    background-color: #fc036b;
+    height: 100%;
+    width: 0; /* Initial width */
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 25px;
+    transition: width 1.5s ease-in-out; /* Smooth transition */
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(252, 3, 107, 0.8); /* Glowing effect */
+}
+
+/* Glowing Animation */
+@keyframes glowing {
+    0% {
+        box-shadow: 0 0 10px rgb(255, 255, 255);
+    }
+    50% {
+        box-shadow: 0 0 20px rgb(255, 255, 255);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+}
+
+/* Bar fill with glowing effect */
+.bar-fill::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    background: rgba(252, 3, 107, 0.2); /* Slightly more transparent */
+    border-radius: 50%;
+    animation: glowing 2s infinite; /* Pulsating effect */
+    opacity: 0.6; /* Slightly adjusted for better visibility */
+    mix-blend-mode: screen;
+}
+
+/* Add a subtle shadow to enhance the glow effect */
+.bar-fill {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Soft shadow to enhance depth */
+}
+
+.flag-icon {
+    display: inline-block;
+    width: 24px;
+    height: 16px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg'); /* URL to the Indian flag image */
+    background-size: cover;
+    vertical-align: middle;
+}
+
